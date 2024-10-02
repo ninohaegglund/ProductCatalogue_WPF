@@ -1,0 +1,59 @@
+﻿<Window x:Class="ProductCatalogue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductCatalogue"
+        mc:Ignorable="d"
+        Title="Product Catalogue" 
+        Height="600" Width="920"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"        
+        >
+
+    <Border Background="#272537" CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Product Catalogue"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Foreground="White"                                      
+                    FontSize="24"
+                    Margin="1,0,0,0"/>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Add Product"                             
+                             Foreground="White"
+                             FontSize="16"
+                             Margin="0,0,0,20"
+                             />
+                
+
+                <RadioButton Content="List of Products"
+                             Foreground="White"
+                             FontSize="16"/>
+
+            </StackPanel>
+        </Grid>
+
+        
+
+
+
+
+
+    </Border>
+
+      
+    
+</Window>

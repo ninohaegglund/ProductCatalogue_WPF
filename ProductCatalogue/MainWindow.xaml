@@ -12,7 +12,7 @@
         AllowsTransparency="True"        
         >
 
-    <Border Background="#272537" CornerRadius="20">
+    <Border Background="#1E3E62" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -28,22 +28,45 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
                     Foreground="White"                                      
-                    FontSize="24"
-                    Margin="1,0,0,0"/>
+                    FontSize="18"
+                    Margin="20,0,0,0"
+                    FontWeight="Bold"/>
 
             <StackPanel Grid.Row="1">
-                <RadioButton Content="Add Product"                             
+                
+                <Button Content="Add Product"                             
                              Foreground="White"
                              FontSize="16"
                              Margin="0,0,0,20"
-                             />
+                             Style="{StaticResource MenuBtnTheme}"/>
                 
-
-                <RadioButton Content="List of Products"
+                <Button Content="List of Products"                             
                              Foreground="White"
-                             FontSize="16"/>
+                             FontSize="16"
+                             Margin="0,0,0,20"
+                             Style="{StaticResource MenuBtnTheme}"/>
 
+                <Button Content="Remove Product"                             
+                             Foreground="White"
+                             FontSize="16"
+                             Margin="0,0,0,20"
+                             Style="{StaticResource MenuBtnTheme}"/>
+
+                <Button Content="Exit Program"                             
+                             Foreground="White"
+                             FontSize="16"
+                             Margin="0,360,0,0"
+                             Style="{StaticResource MenuBtnTheme}"/>
             </StackPanel>
+
+            <TextBox Width="250"
+                     Height="40"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     Grid.Column="1"/>
+
+
         </Grid>
 
         

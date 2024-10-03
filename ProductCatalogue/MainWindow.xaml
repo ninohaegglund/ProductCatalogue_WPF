@@ -12,7 +12,7 @@
         AllowsTransparency="True"        
         >
 
-    <Border Background="#1E3E62" CornerRadius="20">
+    <Border Background="#0B192C" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -29,34 +29,41 @@
                     HorizontalAlignment="Left"
                     Foreground="White"                                      
                     FontSize="18"
-                    Margin="20,0,0,0"
+                    Margin="22,0,0,0"
                     FontWeight="Bold"/>
 
             <StackPanel Grid.Row="1">
-                
-                <Button Content="Add Product"                             
-                             Foreground="White"
-                             FontSize="16"
-                             Margin="0,0,0,20"
-                             Style="{StaticResource MenuBtnTheme}"/>
-                
-                <Button Content="List of Products"                             
-                             Foreground="White"
-                             FontSize="16"
-                             Margin="0,0,0,20"
-                             Style="{StaticResource MenuBtnTheme}"/>
+                <TextBlock Text="Name" 
+                           Foreground="White"/>
 
-                <Button Content="Remove Product"                             
+                <TextBox x:Name="InputName" 
+                         Margin="0,5,0,10" 
+                         Padding="5" 
+                         Background="AliceBlue"/>
+
+                <TextBlock Text="Price" 
+                           Foreground="White"  />
+                <TextBox x:Name="InputPrice" 
+                         Margin="0,5,0,15" 
+                         Padding="5" 
+                         Background="AliceBlue"/>
+
+                <Button Content="Add Product"
+                             x:Name="BtnSave"
                              Foreground="White"
                              FontSize="16"
                              Margin="0,0,0,20"
-                             Style="{StaticResource MenuBtnTheme}"/>
+                             Style="{StaticResource MenuBtnTheme}"
+                             Click="BtnSave_Click"/>
 
-                <Button Content="Exit Program"                             
+                <Button Content="Exit Program"
+                             x:Name="BtnExit"
                              Foreground="White"
                              FontSize="16"
-                             Margin="0,360,0,0"
-                             Style="{StaticResource MenuBtnTheme}"/>
+                             Style="{StaticResource MenuBtnTheme}"
+                             Margin="0,300,0,0"
+                             Click="BtnExit_Click"/>
+            
             </StackPanel>
 
             <TextBox Width="250"
@@ -66,10 +73,77 @@
                      Margin="5"
                      Grid.Column="1"/>
 
+            <ListView x:Name="LvCustomers" 
+                      RenderTransformOrigin="1.665,0.415" 
+                      Grid.Column="1" Margin="10,24,460,24" 
+                      Grid.Row="1" 
+                      Background="AliceBlue" 
+                      Foreground="Black"
+                      Width="250"
+                      SelectionMode="Single"
+                      HorizontalContentAlignment="Stretch">
 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="{Binding Name}" 
+                                           FontSize="12"
+                                           FontWeight="Bold"/>
+                                <TextBlock Text="{Binding PriceFormatted}"
+                                           FontSize="9"
+                                           FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <Button Grid.Column="1" 
+                                    x:Name="Btn_Delete" 
+                                    Click="Btn_Delete_Click"
+                                    Margin="50,0,0,0">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" 
+                                                Value="Transparent" />
+                                        <Setter Property="BorderThickness" 
+                                                Value="0" />
+                                        <Setter Property="FontSize" 
+                                                Value="14" />
+                                        <Setter Property="Foreground" 
+                                                Value="Black" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Background="Transparent">
+                                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                                          VerticalAlignment="Center" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" 
+                                                     Value="True" >
+                                                <Setter Property="Foreground" 
+                                                        Value="Red" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+                                <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                           Text="&#xE74D;" />
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
 
-        
+
 
 
 
@@ -77,6 +151,6 @@
 
     </Border>
 
-      
-    
+
+
 </Window>

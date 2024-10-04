@@ -31,7 +31,7 @@ public partial class MainWindow : Window
             _products.Add(product);
         }
 
-        LvCustomers.ItemsSource = _products;
+        LvProducts.ItemsSource = _products;
     }
 
     private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -56,7 +56,7 @@ public partial class MainWindow : Window
                 "Invalid price. Please enter a valid number.",
                 "Confirm",
                 MessageBoxButton.OK,
-                MessageBoxImage.Error);
+                MessageBoxImage.Information);
         }
     }
 
@@ -66,7 +66,7 @@ public partial class MainWindow : Window
             "Are you sure you want to exit?",
             "Confirm exit",
             MessageBoxButton.YesNo,
-            MessageBoxImage.Question);
+            MessageBoxImage.Warning);
         if (result == MessageBoxResult.Yes)
         {
             Application.Current.Shutdown();

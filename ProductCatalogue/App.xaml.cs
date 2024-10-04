@@ -22,7 +22,7 @@ public partial class App : Application
             .ConfigureServices((context, services) =>
             {
                 services.AddSingleton<ProductService>();
-                services.AddSingleton<FileService>(new FileService(filePath));
+                services.AddSingleton(new FileService(filePath));
                 services.AddSingleton<MainWindow>();
 
             }).Build();

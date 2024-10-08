@@ -42,5 +42,8 @@ public class ProductService
 
         return _products;
     }
-
+    public bool ProductExists(string productName)
+    {
+        return _products.Any(p => p.Name.Equals(productName, StringComparison.OrdinalIgnoreCase));
+    }
 }

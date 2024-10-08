@@ -20,8 +20,6 @@ public partial class MainWindow : Window
         UpdateListView();
        
     }
-
-
     private void UpdateListView()
     {
         _products.Clear();
@@ -43,20 +41,30 @@ public partial class MainWindow : Window
                 Name = InputName.Text,
                 Price = price,
             };
-
-            _productService.AddToList(product);
-            InputName.Text = "";
-            InputPrice.Text = "";
-
-            UpdateListView();
-        }
-        else
-        {
-            MessageBox.Show(
-                "Invalid price. Please enter a valid number.",
+            if (_productService!.ProductExists(product.Name))
+            {
+                MessageBox.Show(
+                $"A product with the name '{product.Name}' already exists. Please enter a new product name..",
                 "Confirm",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
+            }
+            else
+            {
+               _productService.AddToList(product);
+               InputName.Text = "";
+               InputPrice.Text = "";
+
+               UpdateListView();
+            }          
+        }     
+        else
+        {
+            MessageBox.Show(
+            "Invalid price. Please enter a valid number.",
+            "Confirm",
+            MessageBoxButton.OK,
+            MessageBoxImage.Information);
         }
     }
 
@@ -84,4 +92,5 @@ public partial class MainWindow : Window
         _productService.SaveProductList(_products.ToList());
 
     }
+
 }

@@ -10,17 +10,23 @@ namespace ProductCatalogue;
 
 public partial class MainWindow : Window
 {
-    private readonly ProductService _productService;
+    private readonly IProductService _productService;
     private ObservableCollection<Product> _products = [];
 
-    public MainWindow(ProductService productService)
+    public MainWindow(IProductService productService)
     {
         InitializeComponent();
         _productService = productService;
-        UpdateListView();
-       
+        LvProducts.ItemsSource = _products;
+        LoadProducts();
+        LoadCategories();
+
     }
-    private void UpdateListView()
+    private void LoadCategories()
+    {
+        CbCategories.ItemsSource = Enum.GetValues(typeof(Category)).Cast<Category>().ToList();
+    }
+    private void LoadProducts()
     {
         _products.Clear();
         foreach (var product in _productService.GetProducts())
@@ -29,7 +35,7 @@ public partial class MainWindow : Window
             _products.Add(product);
         }
 
-        LvProducts.ItemsSource = _products;
+       
     }
 
     private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -40,6 +46,7 @@ public partial class MainWindow : Window
             {
                 Name = InputName.Text,
                 Price = price,
+                Category = (Category)CbCategories.SelectedItem
             };
             if (_productService!.ProductExists(product.Name))
             {
@@ -54,8 +61,8 @@ public partial class MainWindow : Window
                _productService.AddToList(product);
                InputName.Text = "";
                InputPrice.Text = "";
-
-               UpdateListView();
+               CbCategories.SelectedIndex = -1; //reset selection after adding product
+               LoadProducts();
             }          
         }     
         else
@@ -87,10 +94,14 @@ public partial class MainWindow : Window
         var product = button?.DataContext as Product;
 
         if (product != null)
+        {
+            _productService.DeleteProduct(product);
             _products.Remove(product);
 
-        _productService.SaveProductList(_products.ToList());
+        }
+        
 
     }
 
+    
 }

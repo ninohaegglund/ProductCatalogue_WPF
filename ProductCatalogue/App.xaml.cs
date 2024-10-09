@@ -21,8 +21,8 @@ public partial class App : Application
         _host = Host.CreateDefaultBuilder()
             .ConfigureServices((context, services) =>
             {
-                services.AddSingleton<ProductService>();
-                services.AddSingleton(new FileService(filePath));
+                services.AddSingleton<IProductService, ProductService>();
+                services.AddSingleton<IFileService>( new FileService(filePath));
                 services.AddSingleton<MainWindow>();
 
             }).Build();

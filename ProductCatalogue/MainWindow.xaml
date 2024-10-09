@@ -61,26 +61,30 @@
                          Width="183"
                          />
 
-                <TextBlock Text="Category" 
-                          Foreground="White"
-                          Margin="10,0,0,0"/>
 
-                <TextBox x:Name="InputCategory" 
-                        Margin="0,5,0,15"
-                        Padding="4"
-                        Background="#1E201E"
-                        Foreground="AntiqueWhite"
-                        BorderBrush="#7E60BF"
-                        BorderThickness="0.45"
-                        Width="183"
-                       />
+                <TextBlock Text="Category" 
+                           Foreground="White"
+                           Margin="10,0,0,0"/>
+
+                <ComboBox Width="150" 
+                          Margin="10,5,0,0"
+                          HorizontalAlignment="Left"                        
+                          BorderBrush="#7E60BF"
+                          BorderThickness="0.45"
+                          Name="CbCategories">
+                           
+                </ComboBox>
+
+
+
+
 
                 <Button Content="Add Product"
                         x:Name="BtnSave"
                         Foreground="White"
-                        FontSize="16"
+                        FontSize="14"
                         Width="100"
-                        Margin="10,0,0,0"
+                        Margin="10,20,0,0"
                         HorizontalAlignment="Left"
                         Style="{StaticResource MenuBtnTheme}"
                         Click="BtnSave_Click"/>
@@ -132,9 +136,10 @@
                       SelectionMode="Single"
                       HorizontalContentAlignment="Stretch" 
                       Margin="32,10,436,64" 
-                      Grid.Row="1">
+                      Grid.Row="1"
+                      ItemsSource="{Binding Products}">
 
-                <ListView.ItemTemplate>
+                <ListView.ItemTemplate >
                     <DataTemplate>
                         <Grid Margin="0,0,0,0">
                             <Grid.ColumnDefinitions>
@@ -146,10 +151,20 @@
                                 <TextBlock Text="{Binding Name}" 
                                            FontSize="13"                                      
                                            Margin="0,0,0,5"
-                                           />
-                                <TextBlock Text="{Binding PriceFormatted}"
-                                           FontSize="11"
-                                           FontWeight="UltraLight"/>
+                                           FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    
+                                    <TextBlock Text="{Binding PriceFormatted}"
+                                                FontSize="11"
+                                                FontWeight="UltraLight"
+                                               Margin="0,0,5,0"/>
+
+                                    <TextBlock Text="{Binding Category}"
+                                                FontSize="10"
+                                                 FontWeight="UltraLight"/>
+
+                                </StackPanel>
+
                             </StackPanel>
 
                             <Button Grid.Column="1" 

@@ -1,6 +1,6 @@
 ﻿namespace Shared.Services;
 
-public class FileService
+public class FileService : IFileService
 {
     private readonly string _filePath = "";
 
@@ -22,7 +22,7 @@ public class FileService
         return false;
     }
 
-    public string GetFromFile()
+    public string LoadFromFile()
     {
         try
         {

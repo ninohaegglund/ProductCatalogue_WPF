@@ -5,6 +5,7 @@ public class Product
     public string Name { get; set; } = null!;
     public decimal Price { get; set; }
     public string PriceFormatted { get; set; } = string.Empty;
+    public Category Category { get; set; }
 
-  
+
 }

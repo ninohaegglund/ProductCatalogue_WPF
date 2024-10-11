@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using Shared.Enums;
 using Shared.Models;
 using Shared.Services;
 
@@ -40,6 +41,26 @@ public partial class MainWindow : Window
 
     private void BtnSave_Click(object sender, RoutedEventArgs e)
     {
+        if(string.IsNullOrEmpty(InputName.Text))
+        {
+            MessageBox.Show(
+                "Please enter a valid name",
+                "Error",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+            return;
+        }
+
+        if(CbCategories.SelectedItem == null)                                                                                                                                                                                                                                                                                                                                                                                       
+        {
+            MessageBox.Show(
+               "Please select a category",
+               "Error",
+               MessageBoxButton.OK,
+               MessageBoxImage.Information);             
+            return;
+        }
+
         if (decimal.TryParse(InputPrice.Text, out decimal price))
         {
             var product = new Product
@@ -103,5 +124,8 @@ public partial class MainWindow : Window
 
     }
 
-    
+    private void Btn_Edit_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
 }

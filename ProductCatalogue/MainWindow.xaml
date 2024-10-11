@@ -12,7 +12,7 @@
         AllowsTransparency="True"        
         >
 
-    <Border Background="#45474B" CornerRadius="20">
+    <Border Background="#343131" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="203"/>
@@ -113,15 +113,6 @@
 
 
 
-            <Button Content="View Product List"
-            Foreground="White"
-            FontWeight="Bold"
-            FontSize="16"
-            Margin="572,10,0,10"
-            VerticalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            Style="{StaticResource MenuBtnTheme}"
-            Grid.Column="1" Width="136"/>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
@@ -152,7 +143,7 @@
                                            FontSize="13"                                      
                                            Margin="0,0,0,5"
                                            FontWeight="Bold"/>
-                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                               
                                     
                                     <TextBlock Text="{Binding PriceFormatted}"
                                                 FontSize="11"
@@ -163,7 +154,6 @@
                                                 FontSize="10"
                                                  FontWeight="UltraLight"/>
 
-                                </StackPanel>
 
                             </StackPanel>
 
@@ -171,6 +161,7 @@
                                     x:Name="Btn_Delete" 
                                     Click="Btn_Delete_Click"                                  
                                     Width="20"
+                                    Height="20"
                                     HorizontalAlignment="Right">
 
                                 <Button.Style>
@@ -206,6 +197,49 @@
                                 <TextBlock FontFamily="Segoe MDL2 Assets" 
                                            Text="&#xE74D;" />
                             </Button>
+
+                            <Button Grid.Column="1" 
+                                    x:Name="Btn_Edit" 
+                                    Click="Btn_Edit_Click"                                  
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,0,23,0">
+
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" 
+                                                Value="Transparent" />
+                                        <Setter Property="BorderThickness" 
+                                                Value="0" />
+                                        <Setter Property="FontSize" 
+                                                Value="12" />
+                                        <Setter Property="Foreground" 
+                                                Value="White" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Background="Transparent">
+                                                        <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" 
+                         Value="True" >
+                                                <Setter Property="Foreground" 
+                            Value="Cyan" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+                                <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                           Text="&#xE70F;" />
+                            </Button>
+                            
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

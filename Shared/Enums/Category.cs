@@ -1,6 +1,4 @@
-﻿
-
-namespace Shared.Models;
+﻿namespace Shared.Enums;
 
 public enum Category
 {
@@ -12,5 +10,4 @@ public enum Category
     Home,
     Kitchen,
     Sports
-   
 }

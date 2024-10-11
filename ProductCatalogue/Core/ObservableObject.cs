@@ -4,12 +4,22 @@ using System.Security.Cryptography;
 
 namespace ProductCatalogue.Core;
 
-class ObservableObject : INotifyPropertyChanged
+public class ObservableObject : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected void OnProperyChanged([CallerMemberName] string name = null!)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+
+    protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null!)
+    {
+        if (Equals(field, value))
+            return false;         
+
+        field = value;
+        OnProperyChanged(propertyName);
+        return true;
     }
 }

@@ -55,6 +55,10 @@ public class ProductService : IProductService
         }
 
     }
+    public void UpdateProduct(Product product)
+    {
+
+    }
 
     public IEnumerable<Product> GetProducts()
     {

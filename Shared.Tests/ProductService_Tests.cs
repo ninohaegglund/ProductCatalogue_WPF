@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Moq;
 using Shared.Models;
 using Shared.Services;
@@ -59,3 +56,8 @@ public class ProductService_Tests
         Assert.Equal(2, ((Collection<Product>)products).Count); //Making sure that the correct number of products is returned
     }
 }
+
+//Utöka dina enhetstester till att inkludera tester för:
+//Att ta bort en produkt från listan;
+//Att uppdatera en produkt.;
+//Att spara och läsa in produkter från fil.

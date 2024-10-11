@@ -2,7 +2,7 @@
 
 public class FileService : IFileService
 {
-    private readonly string _filePath = "";
+    private readonly string _filePath;
 
     public FileService(string filePath)
     {
@@ -17,9 +17,13 @@ public class FileService : IFileService
             sw.WriteLine(content);
             return true;
         }
-        catch { }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
+    
 
-        return false;
     }
 
     public string LoadFromFile()

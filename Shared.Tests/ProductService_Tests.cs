@@ -23,7 +23,7 @@ public class ProductService_Tests
         _productService = new ProductService(_fileServiceMock.Object);
     }
 
-    [Fact]
+    [Fact]//Test for adding a product to the list
     public void AddToList_ShouldAddProduct_WhenProductIsValid()
     {
         // Arrange
@@ -39,7 +39,7 @@ public class ProductService_Tests
     }
  
 
-    [Fact]
+    [Fact] //Test verifying correct amount is added to the list
     public void GetProducts_ShouldReturnAllProducts()
     {
         // Arrange
@@ -52,11 +52,48 @@ public class ProductService_Tests
         var products = _productService.GetProducts();
 
         // Assert
-        Assert.Equal(2, ((Collection<Product>)products).Count); //Making sure that the correct number of products is returned
+        Assert.Equal(2, ((Collection<Product>)products).Count);
     }
+    [Fact]//Test for deleting a product in the list
+    public void DeleteProduct_ShouldRemoveExistingProductFromList()
+    {
+        // Arrange
+        var product1 = new Product { Id = Guid.NewGuid().ToString(), Name = "Product 1", Price = 5.0M };
+        var product2 = new Product { Id = Guid.NewGuid().ToString(), Name = "Product 2", Price = 10.0M };
+        _productService.AddToList(product1);
+        _productService.AddToList(product2);
+
+        // Act
+        _productService.DeleteProduct(product1);
+
+        // Assert
+       var products = _productService.GetProducts().ToList();
+       Assert.Single(products);
+       Assert.DoesNotContain(products, p => p.Id ==product1.Id);
+    }
+    [Fact]//Test for updating a product in the list
+    public void UpdateProduct_ShouldUpdateExistingProductInList()
+    {
+        // Arrange
+        var product1 = new Product { Id = Guid.NewGuid().ToString(), Name = "Product 1", Price = 5.0M };
+        var product2 = new Product { Id = Guid.NewGuid().ToString(), Name = "Product 2", Price = 10.0M };
+        _productService.AddToList(product1);
+        _productService.AddToList(product2);
+
+        var updatedProduct = new Product { Id = product1.Id, Name = "Updated Product 1", Price = 15.0M };
+
+        // Act
+        _productService.UpdateProduct(product1, updatedProduct);
+
+        // Assert
+        var products = _productService.GetProducts().ToList();
+        Assert.Equal(2, products.Count); //Verifying that both products are still in the list
+        Assert.Contains(products, p => p.Id == product1.Id && p.Name == updatedProduct.Name && p.Price == updatedProduct.Price);
+    }
+
 }
 
 //Utöka dina enhetstester till att inkludera tester för:
-//Att ta bort en produkt från listan;
-//Att uppdatera en produkt.;
+//Att ta bort en produkt från listan; 
+//Att uppdatera en produkt.; 
 //Att spara och läsa in produkter från fil.

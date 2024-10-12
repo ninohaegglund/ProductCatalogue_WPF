@@ -12,23 +12,28 @@ public class ProductService : IProductService
 
     public ProductService(IFileService fileService)
     {
-        _fileService = fileService;
-
-        var json = _fileService.LoadFromFile();
-        if (!string.IsNullOrEmpty(json))
-        {
-            _products = new ObservableCollection<Product>(JsonConvert.DeserializeObject<List<Product>>(json)!);
-        }
-        else
-        {
-            _products = new ObservableCollection<Product>();
-        }
+        _fileService = fileService;    
+        _products = new ObservableCollection<Product>();
+        LoadProductList();
     }
 
     public void SaveProductList()
     {
 
         _fileService.SaveToFile(JsonConvert.SerializeObject(_products.ToList()));
+    }
+    public void LoadProductList()
+    {
+        var json = _fileService.LoadFromFile();
+        if (!string.IsNullOrEmpty(json))
+        {
+            var productList = JsonConvert.DeserializeObject<List<Product>>(json);
+            _products = new ObservableCollection<Product>(productList ?? new List<Product>());
+        }
+        else
+        {
+            _products = new ObservableCollection<Product>();
+        }
     }
 
     public bool AddToList(Product product)

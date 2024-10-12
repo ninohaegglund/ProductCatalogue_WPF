@@ -29,7 +29,8 @@
                     HorizontalAlignment="Center"
                     Foreground="White"                                      
                     FontSize="18"
-                    FontWeight="Bold" Height="23" Width="156"/>
+                    FontWeight="ExtraLight" 
+                    Height="23" Width="156"/>
 
             <StackPanel Grid.Row="1">
 
@@ -95,10 +96,25 @@
                         Style="{StaticResource MenuBtnTheme}"
                         HorizontalAlignment="Left"
                         Margin="10,270,0,0"
-                        Width="100"
-                        Click="BtnExit_Click"/>
+                        Width="90"
+                        Click="BtnExit_Click"
+                        FontWeight="ExtraLight"/>
+
+
+
+
+
 
             </StackPanel>
+
+            <TextBlock FontFamily="Segoe MDL2 Assets"
+                       Grid.Row="1"
+                       Text="&#xE7E8;" Margin="0,0,79,35"
+                       HorizontalAlignment="Right"
+                       Width="16" Height="17"
+                       VerticalAlignment="Bottom"
+                       Foreground="white"
+                       FontSize="15"/>
 
             <TextBox Width="250"
             VerticalContentAlignment="Center"
@@ -115,8 +131,9 @@
                     Grid.Column="1"
                     Style="{StaticResource MenuBtnTheme}"
                     Foreground="White"
-                    Content="View Full List of Products"
-                    FontSize="16"/>
+                    Content="View Detailed List of Products -->"
+                    FontSize="16"
+                    FontWeight="ExtraLight"/>
 
             <ListView x:Name="LvProducts"  
                       Grid.Column="1" 
@@ -139,27 +156,27 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
+
                                 <TextBlock Text="{Binding Name}" 
                                            FontSize="13"                                      
                                            Margin="0,0,0,5"
                                            FontWeight="Bold"/>
-                               
-                                    
-                                    <TextBlock Text="{Binding PriceFormatted}"
-                                                FontSize="11"
-                                                FontWeight="UltraLight"
-                                               Margin="0,0,5,0"/>
 
-                                    <TextBlock Text="{Binding Category}"
-                                                FontSize="10"
-                                                 FontWeight="UltraLight"/>
+
+                                <TextBlock Text="{Binding PriceFormatted}"
+                                           FontSize="11"
+                                           FontWeight="UltraLight"
+                                           Margin="0,0,5,0"/>
+
+                                <TextBlock Text="{Binding Category}"
+                                           FontSize="10"
+                                           FontWeight="UltraLight"/>
 
 
                                 <TextBlock Text="{Binding Id}"
-                                                FontSize="10"
-                                                FontWeight="UltraLight"
-                                                Foreground="Transparent"/>
-
+                                           FontSize="10"
+                                           FontWeight="UltraLight"
+                                           Foreground="Transparent"/>
 
                             </StackPanel>
 
@@ -245,7 +262,7 @@
                                 <TextBlock FontFamily="Segoe MDL2 Assets" 
                                            Text="&#xE70F;" />
                             </Button>
-                            
+
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

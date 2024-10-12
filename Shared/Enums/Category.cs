@@ -4,7 +4,7 @@ public enum Category
 {
     Electronics,
     Computers,
-    SmartHome,
+    Clothing,
     Toys,
     Games,
     Home,

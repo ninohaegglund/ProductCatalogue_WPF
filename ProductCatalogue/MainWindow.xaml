@@ -72,11 +72,8 @@
                           BorderBrush="#7E60BF"
                           BorderThickness="0.45"
                           Name="CbCategories">
-                           
+
                 </ComboBox>
-
-
-
 
 
                 <Button Content="Add Product"
@@ -103,7 +100,6 @@
 
             </StackPanel>
 
-
             <TextBox Width="250"
             VerticalContentAlignment="Center"
             HorizontalAlignment="Left"
@@ -111,12 +107,16 @@
             Grid.Column="1"
             Style="{StaticResource ModernTextBox}"/>
 
-
-
-
-            <ContentControl Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="10,10,10,10"/>
+            <Button 
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Height="25"
+                    Margin="20"
+                    Grid.Column="1"
+                    Style="{StaticResource MenuBtnTheme}"
+                    Foreground="White"
+                    Content="View Full List of Products"
+                    FontSize="16"/>
 
             <ListView x:Name="LvProducts"  
                       Grid.Column="1" 
@@ -153,6 +153,12 @@
                                     <TextBlock Text="{Binding Category}"
                                                 FontSize="10"
                                                  FontWeight="UltraLight"/>
+
+
+                                <TextBlock Text="{Binding Id}"
+                                                FontSize="10"
+                                                FontWeight="UltraLight"
+                                                Foreground="Transparent"/>
 
 
                             </StackPanel>
@@ -228,9 +234,9 @@
                                         </Setter>
                                         <Style.Triggers>
                                             <Trigger Property="IsMouseOver" 
-                         Value="True" >
+                                                     Value="True" >
                                                 <Setter Property="Foreground" 
-                            Value="Cyan" />
+                                                        Value="Cyan" />
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>

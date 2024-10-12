@@ -37,8 +37,7 @@ public class ProductService_Tests
         Assert.Single(_productService.GetProducts()); 
         Assert.Contains(product, _productService.GetProducts()); 
     }
-
-  
+ 
 
     [Fact]
     public void GetProducts_ShouldReturnAllProducts()

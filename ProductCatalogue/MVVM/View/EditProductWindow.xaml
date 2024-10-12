@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProductCatalogue.MVVM.View"
+        xmlns:local="clr-namespace:ProductCatalogue.MVVM.View" 
+        xmlns:viewmodel="clr-namespace:ProductCatalogue.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:EditProductViewModel}"
         mc:Ignorable="d"
         Title="Edit Product" Height="200" Width="300"
         Background="Transparent">
@@ -13,15 +14,37 @@
         <Border Background="#343131" >
             <Grid>
                 <StackPanel Margin="20">
-                    <TextBlock Text="Product Name:" 
+                    <TextBlock Text="Name:" 
                                Foreground="White"/>
-                    <TextBox x:Name="NameTextBox" />
-                    <TextBlock Text="Product Price:"
+                    
+                    <TextBox x:Name="NameTextBox"
+                             Background="#1E201E"                            
+                             Foreground="AntiqueWhite"
+                             BorderBrush="#7E60BF"
+                             BorderThickness="0.45"
+                             Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}"/>
+                    
+                    <TextBlock Text="Price:"
                                Foreground="White"/>
-                    <TextBox x:Name="PriceTextBox" />
+                    
+                    <TextBox x:Name="PriceTextBox" 
+                             Background="#1E201E"                            
+                             Foreground="AntiqueWhite"
+                             BorderBrush="#7E60BF"
+                             BorderThickness="0.45"
+                             Text="{Binding ProductPrice, UpdateSourceTrigger=PropertyChanged}"/>
+                    
                     <Button Content="Edit"
-                            x:Name="BtnEdit"
-                            Click="BtnEdit_Click"/>
+                            Foreground="White"
+                        
+                            FontSize="12"
+                            Margin="0,5,0,0"
+                            Style="{StaticResource MenuBtnTheme}"
+                            Command="{Binding SaveCommand}"
+                            />
+                    
+                    
+                    
                 </StackPanel>
             </Grid>
         </Border>

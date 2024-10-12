@@ -11,15 +11,10 @@ namespace ProductCatalogue.MVVM.View;
 
 public partial class EditProductWindow : Window
 {
-    public EditProductWindow(Product product, ProductService productService)
+    public EditProductWindow(Product product, IProductService productService)
     {
         InitializeComponent();
-        this.DataContext = new EditProductViewModel(product, productService);
+        this.DataContext = new EditProductViewModel(product, productService, this);
     }
 
-
-    private void BtnEdit_Click(object sender, RoutedEventArgs e)
-    {
-        //edit button functionality
-    }
 }

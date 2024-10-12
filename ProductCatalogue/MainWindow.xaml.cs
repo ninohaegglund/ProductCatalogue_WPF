@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using ProductCatalogue.MVVM.View;
 using Shared.Enums;
 using Shared.Models;
 using Shared.Services;
@@ -126,6 +127,15 @@ public partial class MainWindow : Window
 
     private void Btn_Edit_Click(object sender, RoutedEventArgs e)
     {
+        var button = sender as Button;
+        var product = button?.DataContext as Product;
 
+        if (product != null)
+        { 
+            var editProductWindow = new EditProductWindow(product, _productService);
+            editProductWindow.ShowDialog();
+            LoadProducts();
+            
+        }
     }
 }

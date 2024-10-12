@@ -55,9 +55,16 @@ public class ProductService : IProductService
         }
 
     }
-    public void UpdateProduct(Product product)
+    public void UpdateProduct(Product existingProduct, Product updatedProduct)
     {
+        var product = _products.FirstOrDefault(p => p.Id == existingProduct.Id);
+        if (product != null)
+        {
+            product!.Name = updatedProduct.Name;
+            product.Price = updatedProduct.Price;
 
+            SaveProductList();
+        }
     }
 
     public IEnumerable<Product> GetProducts()

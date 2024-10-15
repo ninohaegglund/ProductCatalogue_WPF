@@ -92,8 +92,3 @@ public class ProductService_Tests
     }
 
 }
-
-//Utöka dina enhetstester till att inkludera tester för:
-//Att ta bort en produkt från listan; 
-//Att uppdatera en produkt.; 
-//Att spara och läsa in produkter från fil.

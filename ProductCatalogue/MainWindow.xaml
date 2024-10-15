@@ -15,7 +15,7 @@
     <Border Background="#343131" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="203"/>
+                <ColumnDefinition Width="217"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -24,13 +24,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Home"
+            <TextBlock Text="Start"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Foreground="White"                                      
-                    FontSize="18"
+                    FontSize="28"
                     FontWeight="ExtraLight" 
-                    Height="23" Width="156"/>
+                    Height="37" Width="156"/>
 
             <StackPanel Grid.Row="1">
 
@@ -73,7 +73,6 @@
                           BorderBrush="#7E60BF"
                           BorderThickness="0.45"
                           Name="CbCategories">
-
                 </ComboBox>
 
 
@@ -81,12 +80,11 @@
                         x:Name="BtnSave"
                         Foreground="White"
                         FontSize="14"
-                        Width="100"
+                        Width="83"
                         Margin="10,20,0,0"
                         HorizontalAlignment="Left"
                         Style="{StaticResource MenuBtnTheme}"
                         Click="BtnSave_Click"/>
-
 
 
                 <Button Content="Exit Program"
@@ -101,49 +99,62 @@
                         FontWeight="ExtraLight"/>
 
 
-
-
-
-
             </StackPanel>
 
             <TextBlock FontFamily="Segoe MDL2 Assets"
                        Grid.Row="1"
-                       Text="&#xE7E8;" Margin="0,0,79,35"
+                       Text="&#xE7E8;" Margin="0,0,84,37"
+                       HorizontalAlignment="Right"
+                       Width="12" Height="13"
+                       VerticalAlignment="Bottom"
+                       Foreground="Ivory"
+                       FontSize="12"/>
+
+            <TextBlock FontFamily="Segoe MDL2 Assets"
+                       Grid.Row="1"
+                       Text="&#xECC8;" Margin="0,184,88,0"
                        HorizontalAlignment="Right"
                        Width="16" Height="17"
-                       VerticalAlignment="Bottom"
-                       Foreground="white"
-                       FontSize="15"/>
+                       VerticalAlignment="Top"
+                       Foreground="Ivory"
+                       FontSize="13"/>
 
             <TextBox Width="250"
-            VerticalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            Margin="5,18,0,17"
-            Grid.Column="1"
-            Style="{StaticResource ModernTextBox}"/>
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5,18,0,17"
+                     Grid.Column="1"
+                     Style="{StaticResource ModernTextBox}"
+                     x:Name="SearchBox"
+                     TextChanged="SearchBox_TextChanged"
+                     Foreground="White"/>
 
-            <Button 
-                    VerticalContentAlignment="Center"
-                    HorizontalAlignment="Right"
-                    Height="25"
-                    Margin="20"
+            <Button VerticalContentAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="461,25,0,25"
                     Grid.Column="1"
                     Style="{StaticResource MenuBtnTheme}"
-                    Foreground="White"
+                    Foreground="Ivory"
                     Content="View Detailed List of Products -->"
                     FontSize="16"
-                    FontWeight="ExtraLight"/>
+                    FontWeight="ExtraLight" 
+                    Width="230"
+                    />
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="25,25,25,25"/>
 
             <ListView x:Name="LvProducts"  
                       Grid.Column="1" 
                       Background="#1E201E"
                       BorderBrush="#7E60BF"
+                      Margin="20,0,260,0"
                       BorderThickness="0.45"
                       Foreground="White"
                       SelectionMode="Single"
                       HorizontalContentAlignment="Stretch" 
-                      Margin="32,10,436,64" 
+                       
                       Grid.Row="1"
                       ItemsSource="{Binding Products}">
 
@@ -162,21 +173,23 @@
                                            Margin="0,0,0,5"
                                            FontWeight="Bold"/>
 
-
                                 <TextBlock Text="{Binding PriceFormatted}"
                                            FontSize="11"
                                            FontWeight="UltraLight"
                                            Margin="0,0,5,0"/>
 
-                                <TextBlock Text="{Binding Category}"
-                                           FontSize="10"
-                                           FontWeight="UltraLight"/>
+                                <TextBlock FontSize="10"
+                                            FontWeight="UltraLight">
+                                    <Run Text="Category: "/>
+                                    <Run Text="{Binding Category}"/>
+                                </TextBlock>
 
-
-                                <TextBlock Text="{Binding Id}"
-                                           FontSize="10"
+                                <TextBlock FontSize="10"
                                            FontWeight="UltraLight"
-                                           Foreground="Transparent"/>
+                                           Foreground="DarkGray">
+                                    <Run Text="ID: "/>
+                                    <Run Text="{Binding Id}"/>
+                                </TextBlock>
 
                             </StackPanel>
 

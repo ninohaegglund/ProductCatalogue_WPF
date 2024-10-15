@@ -9,5 +9,4 @@ public class Product
     public string PriceFormatted { get; set; } = string.Empty;
     public Category Category { get; set; }
 
-
 }

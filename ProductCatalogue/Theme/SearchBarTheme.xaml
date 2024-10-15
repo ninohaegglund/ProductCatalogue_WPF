@@ -11,15 +11,12 @@
 
                         <Grid>
                             <Rectangle StrokeThickness="1"/>
-                            <TextBox Margin=" 1"
-                                     Text="{TemplateBinding Text}"
-                                     BorderThickness="0"
-                                     Background="Transparent"
-                                     VerticalContentAlignment="Center"
-                                     Padding="5"
-                                     Foreground="#CFCFCF"
-                                     x:Name="SearchBox"/>
-                            
+
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Margin="5"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"/>
+
                             <TextBlock IsHitTestVisible ="False"
                                        Text="Search Product"
                                        VerticalAlignment="Center"
@@ -31,7 +28,7 @@
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}" Value="">
                                                 <Setter Property="Visibility" Value="Visible"/>
 
                                             </DataTrigger>

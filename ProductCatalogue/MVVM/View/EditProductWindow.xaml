@@ -19,7 +19,7 @@
                     
                     <TextBox x:Name="NameTextBox"
                              Background="#1E201E"                            
-                             Foreground="AntiqueWhite"
+                             Foreground="White"
                              BorderBrush="#7E60BF"
                              BorderThickness="0.45"
                              Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}"/>
@@ -29,7 +29,7 @@
                     
                     <TextBox x:Name="PriceTextBox" 
                              Background="#1E201E"                            
-                             Foreground="AntiqueWhite"
+                             Foreground="White"
                              BorderBrush="#7E60BF"
                              BorderThickness="0.45"
                              Text="{Binding ProductPrice, UpdateSourceTrigger=PropertyChanged}"/>
@@ -37,8 +37,8 @@
                     <Button Content="Edit"
                             Foreground="White"
                         
-                            FontSize="12"
-                            Margin="0,5,0,0"
+                            FontSize="14"
+                            Margin="0,10,0,0"
                             Style="{StaticResource MenuBtnTheme}"
                             Command="{Binding SaveCommand}"
                             />

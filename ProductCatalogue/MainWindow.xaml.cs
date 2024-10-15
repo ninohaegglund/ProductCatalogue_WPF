@@ -138,4 +138,23 @@ public partial class MainWindow : Window
             
         }
     }
+
+    private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var searchInput = SearchBox.Text.ToLower();
+
+        var filteredProducts = _productService.GetProducts().
+            Where(p => p.Name.ToLower().Contains(searchInput) ||
+            p.Category.ToString().ToLower().Contains(searchInput)).
+            ToList();
+
+        _products.Clear();
+        foreach (var product in filteredProducts)
+        {
+            product.PriceFormatted = product.Price.ToString("C");
+            _products.Add(product);
+        }
+
+
+    }
 }

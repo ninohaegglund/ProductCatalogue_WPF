@@ -31,13 +31,11 @@ public class FileService_Tests
         //Arrange
         string jsonContent = "[{\"Id\":\"12345\",\"Name\":\"Test Product 1\",\"Price\":10.0}," +
                              "{\"Id\":\"67890\",\"Name\":\"Test Product 2\",\"Price\":20.0}]";
-
         _mockFileService.Setup(fs => fs.LoadFromFile()).Returns(jsonContent);
         //Act
         _productService.LoadProductList();
         var products = _productService.GetProducts().ToList();
-
-        
+       
         //Assert
         Assert.Equal(2, products.Count);
         Assert.Equal("Test Product 1", products[0].Name);
@@ -45,14 +43,9 @@ public class FileService_Tests
         Assert.Equal("Test Product 2", products[1].Name);
         Assert.Equal(20.0M, products[1].Price);
 
-        _mockFileService.Verify(fs => fs.LoadFromFile(), Times.Exactly(2));
+        //Need to verify twice because of LoadFromFile in the constructor of ProductService
+        _mockFileService.Verify(fs => fs.LoadFromFile(), Times.Exactly(2)); 
 
     }
 
 }
-
-
-//Utöka dina enhetstester till att inkludera tester för:
-//Att ta bort en produkt från listan;
-//Att uppdatera en produkt.;
-//Att spara och läsa in produkter från fil.

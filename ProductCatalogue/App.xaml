@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProductCatalogue"
+             xmlns:viewModel="clr-namespace:ProductCatalogue.MVVM.ViewModel"
+             xmlns:view="clr-namespace:ProductCatalogue.MVVM.View"
            >
     <Application.Resources>
         <ResourceDictionary>
@@ -9,7 +11,11 @@
                 <ResourceDictionary Source="Theme/MenuBtnTheme.xaml"/>
                 <ResourceDictionary Source="Theme/SearchBarTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:StartViewModel}">
+                <view:StartView/>
+            </DataTemplate>
+            
         </ResourceDictionary>
-         
     </Application.Resources>
 </Application>

@@ -89,6 +89,7 @@ public class ProductService_Tests
         var products = _productService.GetProducts().ToList();
         Assert.Equal(2, products.Count); //Verifying that both products are still in the list
         Assert.Contains(products, p => p.Id == product1.Id && p.Name == updatedProduct.Name && p.Price == updatedProduct.Price);
+        Assert.DoesNotContain(products, p => p.Id == product1.Id && p.Name == "Product 1" && p.Price == 5.0M);
     }
 
 }

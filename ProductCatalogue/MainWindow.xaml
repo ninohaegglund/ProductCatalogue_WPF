@@ -131,14 +131,14 @@
 
             <Button VerticalContentAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="461,25,0,25"
+                    Margin="581,25,0,25"
                     Grid.Column="1"
                     Style="{StaticResource MenuBtnTheme}"
                     Foreground="Ivory"
-                    Content="View Detailed List of Products -->"
+                    Content="View Details -->"
                     FontSize="16"
                     FontWeight="ExtraLight" 
-                    Width="230"
+                    Width="122"
                     />
 
             <ContentControl Grid.Row="1"
@@ -149,7 +149,7 @@
                       Grid.Column="1" 
                       Background="#1E201E"
                       BorderBrush="#7E60BF"
-                      Margin="20,0,260,0"
+                      Margin="25,25,250,25"
                       BorderThickness="0.45"
                       Foreground="White"
                       SelectionMode="Single"
@@ -160,7 +160,7 @@
 
                 <ListView.ItemTemplate >
                     <DataTemplate>
-                        <Grid Margin="0,0,0,0">
+                        <Grid Margin="5,0,0,16">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition  />
                                 <ColumnDefinition />

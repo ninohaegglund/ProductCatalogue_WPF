@@ -12,10 +12,6 @@
                 <ResourceDictionary Source="Theme/SearchBarTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type viewModel:StartViewModel}">
-                <view:StartView/>
-            </DataTemplate>
-            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,12 +1,7 @@
-﻿
-
-using ProductCatalogue.Core;
+﻿using ProductCatalogue.Core;
 using Shared.Services;
 using Shared.Models;
 using System.Windows.Input;
-using System.Reflection.Metadata.Ecma335;
-using System.Diagnostics;
-using System.Xml.Linq;
 using System.Windows;
 
 namespace ProductCatalogue.MVVM.ViewModel;

@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProductCatalogue"
+        xmlns:viewModel="clr-namespace:ProductCatalogue.MVVM.ViewModel"
+        xmlns:view="clr-namespace:ProductCatalogue.MVVM.View"
         mc:Ignorable="d"
         Title="Product Catalogue" 
         Height="600" Width="920"
@@ -11,6 +13,11 @@
         Background="Transparent"
         AllowsTransparency="True"        
         >
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
+
 
     <Border Background="#343131" CornerRadius="20">
         <Grid>
@@ -50,6 +57,7 @@
 
                 <TextBlock Text="Price" 
                            Foreground="White"
+                           FontWeight="Bold"
                            Margin="10,0,0,0"/>
 
                 <TextBox x:Name="InputPrice" 
@@ -65,10 +73,11 @@
 
                 <TextBlock Text="Category" 
                            Foreground="White"
+                           FontWeight="Bold"
                            Margin="10,0,0,0"/>
 
                 <ComboBox Width="150" 
-                          Margin="10,5,0,0"
+                          Margin="18,10,0,0"
                           HorizontalAlignment="Left"                        
                           BorderBrush="#7E60BF"
                           BorderThickness="0.45"
@@ -131,19 +140,34 @@
 
             <Button VerticalContentAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="581,25,0,25"
+                    Margin="581,15,0,25"
                     Grid.Column="1"
                     Style="{StaticResource MenuBtnTheme}"
                     Foreground="Ivory"
-                    Content="View Details -->"
-                    FontSize="16"
+                    Content="Background 1"
+                    FontSize="14"
                     FontWeight="ExtraLight" 
                     Width="122"
+                    Command="{Binding DetailViewCommand}"
                     />
+
+            <Button VerticalContentAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Margin="581,45,0,0"
+                   Grid.Column="1"
+                   Style="{StaticResource MenuBtnTheme}"
+                   Foreground="Ivory"
+                   Content="Background 2"
+                   FontSize="14"
+                   FontWeight="ExtraLight" 
+                   Width="122"
+                   Command="{Binding HomeViewCommand}"
+           />
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
-                            Margin="25,25,25,25"/>
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
 
             <ListView x:Name="LvProducts"  
                       Grid.Column="1" 

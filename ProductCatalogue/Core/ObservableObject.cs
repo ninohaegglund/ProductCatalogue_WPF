@@ -8,7 +8,7 @@ public class ObservableObject : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    protected void OnProperyChanged([CallerMemberName] string name = null!)
+    protected void OnPropertyChanged([CallerMemberName] string name = null!)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
@@ -19,7 +19,7 @@ public class ObservableObject : INotifyPropertyChanged
             return false;         
 
         field = value;
-        OnProperyChanged(propertyName);
+        OnPropertyChanged(propertyName);
         return true;
     }
 }

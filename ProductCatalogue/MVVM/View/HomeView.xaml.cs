@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ProductCatalogue.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for DetailsView.xaml
+    /// Interaction logic for HomeView.xaml
     /// </summary>
-    public partial class DetailsView : UserControl
+    public partial class HomeView : UserControl
     {
-        public DetailsView()
+        public HomeView()
         {
             InitializeComponent();
         }

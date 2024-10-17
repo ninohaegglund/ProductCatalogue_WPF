@@ -2,6 +2,7 @@
 
 namespace ProductCatalogue.MVVM.ViewModel;
 
-class DetailsViewModel
+class DetailViewModel
 {
+
 }

@@ -112,7 +112,7 @@
 
             <TextBlock FontFamily="Segoe MDL2 Assets"
                        Grid.Row="1"
-                       Text="&#xE7E8;" Margin="0,0,84,37"
+                       Text="&#xE7E8;" Margin="0,0,100,34"
                        HorizontalAlignment="Right"
                        Width="12" Height="13"
                        VerticalAlignment="Bottom"
@@ -121,7 +121,7 @@
 
             <TextBlock FontFamily="Segoe MDL2 Assets"
                        Grid.Row="1"
-                       Text="&#xECC8;" Margin="0,184,88,0"
+                       Text="&#xECC8;" Margin="0,189,100,0"
                        HorizontalAlignment="Right"
                        Width="16" Height="17"
                        VerticalAlignment="Top"

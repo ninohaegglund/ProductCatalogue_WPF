@@ -4,8 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using ProductCatalogue.MVVM.View;
 using Shared.Enums;
+using Shared.Interfaces;
 using Shared.Models;
-using Shared.Services;
 
 
 namespace ProductCatalogue;

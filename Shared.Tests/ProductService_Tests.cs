@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 
 using Moq;
+using Shared.Interfaces;
 using Shared.Models;
 using Shared.Services;
 

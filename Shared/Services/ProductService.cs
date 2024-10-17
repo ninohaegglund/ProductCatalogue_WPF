@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Shared.Interfaces;
 using Shared.Models;
 using System.Collections.ObjectModel;
 

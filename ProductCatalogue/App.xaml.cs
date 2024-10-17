@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Shared.Interfaces;
 using Shared.Services;
 using System.Configuration;
 using System.Data;

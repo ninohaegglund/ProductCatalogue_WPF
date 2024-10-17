@@ -1,6 +1,6 @@
 ﻿using Shared.Models;
 
-namespace Shared.Services
+namespace Shared.Interfaces
 {
     public interface IProductService
     {

@@ -1,4 +1,6 @@
-﻿namespace Shared.Services;
+﻿using Shared.Interfaces;
+
+namespace Shared.Services;
 
 public class FileService : IFileService
 {
@@ -13,14 +15,20 @@ public class FileService : IFileService
     {
         try
         {
+            var directoryPath = Path.GetDirectoryName(_filePath);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath!);
+            }
+
             using var sw = new StreamWriter(_filePath);
             sw.WriteLine(content);
             return true;
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
-            throw;
+            Console.WriteLine($"Error saving file: {ex.Message}");
+            return false;
         }
     
 
@@ -36,8 +44,16 @@ public class FileService : IFileService
                 var content = sr.ReadToEnd();
                 return content;
             }
+            else
+            {
+                Console.WriteLine("File does not exist.");
+                return null!;
+            }
         }
-        catch { }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Could not load file: {ex.Message}");
+        }
 
         return null!;
     }

@@ -1,4 +1,5 @@
 ﻿using Moq;
+using Shared.Interfaces;
 using Shared.Services;
 
 namespace Shared.Tests;
@@ -46,6 +47,39 @@ public class FileService_Tests
         //Need to verify twice because of LoadFromFile in the constructor of ProductService
         _mockFileService.Verify(fs => fs.LoadFromFile(), Times.Exactly(2)); 
 
+    }
+    [Fact]
+    public void LoadFromFile_ShouldReturnNull_WhenFileIsNotPresent()
+    {
+        //Arrange
+        var filePath = "nonexistentfile.json";
+        var fileService = new FileService(filePath);
+        //Act
+        var result = fileService.LoadFromFile();
+        //Assert
+        Assert.Null(result);
+    }
+    [Fact]
+    public void SaveToFile_ShoulCreateFile_WhenDirectoryIsNotPresent()
+    {
+        //Arrange
+        var directoryPath = "NewDirectory";
+        var filePath = Path.Combine(directoryPath, "testfile.json");
+        var fileService = new FileService(filePath);
+        var content = "Sample Content";
+
+        //Act
+        var result = fileService.SaveToFile(content);
+
+        //Assert
+        //Making sure the file was created successfully
+        Assert.True(result);
+        Assert.True(File.Exists(filePath));
+
+        if (File.Exists(filePath))
+            File.Delete(filePath);
+        if (File.Exists(directoryPath))
+            File.Delete(directoryPath);
     }
 
 }

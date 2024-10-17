@@ -1,8 +1,8 @@
 ﻿
 using System.Windows;
 using ProductCatalogue.MVVM.ViewModel;
-using Shared.Services;
 using Shared.Models;
+using Shared.Interfaces;
 
 
 

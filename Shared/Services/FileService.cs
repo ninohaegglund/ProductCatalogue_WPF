@@ -15,12 +15,7 @@ public class FileService : IFileService
     {
         try
         {
-            var directoryPath = Path.GetDirectoryName(_filePath);
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath!);
-            }
-
+           
             using var sw = new StreamWriter(_filePath);
             sw.WriteLine(content);
             return true;

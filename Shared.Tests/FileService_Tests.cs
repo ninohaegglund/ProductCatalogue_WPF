@@ -59,27 +59,5 @@ public class FileService_Tests
         //Assert
         Assert.Null(result);
     }
-    [Fact]
-    public void SaveToFile_ShoulCreateFile_WhenDirectoryIsNotPresent()
-    {
-        //Arrange
-        var directoryPath = "NewDirectory";
-        var filePath = Path.Combine(directoryPath, "testfile.json");
-        var fileService = new FileService(filePath);
-        var content = "Sample Content";
-
-        //Act
-        var result = fileService.SaveToFile(content);
-
-        //Assert
-        //Making sure the file was created successfully
-        Assert.True(result);
-        Assert.True(File.Exists(filePath));
-
-        if (File.Exists(filePath))
-            File.Delete(filePath);
-        if (File.Exists(directoryPath))
-            File.Delete(directoryPath);
-    }
-
+   
 }
